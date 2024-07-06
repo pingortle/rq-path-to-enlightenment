@@ -7,7 +7,7 @@ class TwoFactorAuthentication::Challenge::RecoveryCodesController < ApplicationC
   end
 
   def create
-    if recover_code = @user.recovery_codes.find_by(code: params[:code], used: false)
+    if (recover_code = @user.recovery_codes.find_by(code: params[:code], used: false))
       recover_code.update!(used: true)
       sign_in_and_redirect_to_root
     else
