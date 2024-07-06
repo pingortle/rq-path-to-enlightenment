@@ -1,6 +1,6 @@
 class TwoFactorAuthentication::Profile::TotpsController < ApplicationController
   before_action :set_user
-  before_action :set_totp, only: %i[ new create ]
+  before_action :set_totp, only: %i[new create]
 
   def new
     @qr_code = RQRCode::QRCode.new(provisioning_uri)
@@ -21,15 +21,16 @@ class TwoFactorAuthentication::Profile::TotpsController < ApplicationController
   end
 
   private
-    def set_user
-      @user = Current.user
-    end
 
-    def set_totp
-      @totp = ROTP::TOTP.new(@user.otp_secret, issuer: "YourAppName")
-    end
+  def set_user
+    @user = Current.user
+  end
 
-    def provisioning_uri
-      @totp.provisioning_uri @user.email
-    end
+  def set_totp
+    @totp = ROTP::TOTP.new(@user.otp_secret, issuer: "YourAppName")
+  end
+
+  def provisioning_uri
+    @totp.provisioning_uri @user.email
+  end
 end

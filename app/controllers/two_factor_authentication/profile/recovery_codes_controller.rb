@@ -2,10 +2,10 @@ class TwoFactorAuthentication::Profile::RecoveryCodesController < ApplicationCon
   before_action :set_user
 
   def index
-    if Current.user.recovery_codes.exists?
-      @recovery_codes = @user.recovery_codes
+    @recovery_codes = if Current.user.recovery_codes.exists?
+      @user.recovery_codes
     else
-      @recovery_codes = @user.recovery_codes.create!(new_recovery_codes)
+      @user.recovery_codes.create!(new_recovery_codes)
     end
   end
 
@@ -17,15 +17,16 @@ class TwoFactorAuthentication::Profile::RecoveryCodesController < ApplicationCon
   end
 
   private
-    def set_user
-      @user = Current.user
-    end
 
-    def new_recovery_codes
-      10.times.map { { code: new_recovery_code } }
-    end
+  def set_user
+    @user = Current.user
+  end
 
-    def new_recovery_code
-      SecureRandom.alphanumeric(10).downcase
-    end
+  def new_recovery_codes
+    10.times.map { {code: new_recovery_code} }
+  end
+
+  def new_recovery_code
+    SecureRandom.alphanumeric(10).downcase
+  end
 end

@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :authenticate, only: %i[ new create ]
+  skip_before_action :authenticate, only: %i[new create]
 
   before_action :set_session, only: :destroy
 
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         redirect_to new_two_factor_authentication_challenge_totp_path
       else
         @session = user.sessions.create!
-        cookies.signed.permanent[:session_token] = { value: @session.id, httponly: true }
+        cookies.signed.permanent[:session_token] = {value: @session.id, httponly: true}
 
         redirect_to root_path, notice: "Signed in successfully"
       end
@@ -27,11 +27,13 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    @session.destroy; redirect_to(sessions_path, notice: "That session has been logged out")
+    @session.destroy
+    redirect_to(sessions_path, notice: "That session has been logged out")
   end
 
   private
-    def set_session
-      @session = Current.user.sessions.find(params[:id])
-    end
+
+  def set_session
+    @session = Current.user.sessions.find(params[:id])
+  end
 end
