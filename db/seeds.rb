@@ -1,9 +1,18 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# TODO: Figure out how to skip pwned password check and password length check
+module Seeds
+  class User < User
+    def self.seed!(email:, password:)
+      user = find_or_create_by!(email: email) do
+        _1.password = generate_password
+      end
+
+      user.update_attribute(:password, password)
+    end
+
+    def self.generate_password
+      SecureRandom.alphanumeric(12)
+    end
+  end
+end
+
+Seeds::User.seed!(email: "admin@example.com", password: "password")
