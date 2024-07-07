@@ -53,6 +53,7 @@ group :development, :test do
 
   gem "standard"
   gem "standard-rails"
+  gem "erb_lint"
 end
 
 group :development do
