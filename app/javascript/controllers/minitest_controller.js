@@ -19,7 +19,7 @@ export default class extends Controller {
         return e
       })
 
-    if (result.toJS() == true) {
+    if (result.toJS() === true) {
       this.outputTarget.textContent += '✅'
     } else {
       this.outputTarget.textContent += '❌'
@@ -28,17 +28,17 @@ export default class extends Controller {
 
   get rubyCode () {
     return `
-    ${this.codeTarget.textContent}
+    ${this.codeTarget.value || this.codeTarget.textContent}
     ${this.rubyAfterUserCode}
     `
   }
 
   get rubySetupCode () {
     return `
-    require 'minitest/test'
-    FakeParallelExecutor = Struct.new(:shutdown)
-    Minitest.parallel_executor = FakeParallelExecutor.new
-    `
+require 'minitest/test'
+FakeParallelExecutor = Struct.new(:shutdown)
+Minitest.parallel_executor = FakeParallelExecutor.new
+`
   }
 
   get rubyAfterUserCode () {

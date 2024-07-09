@@ -1,4 +1,4 @@
-<div data-controller="test-method" id="<%= dom_id koan %>">
+<div data-controller="minitest" id="<%= dom_id koan %>">
   <p class="my-5">
     <strong class="block font-medium mb-1">Title:</strong>
     <%= koan.title %>
@@ -12,11 +12,11 @@
   <div class="my-5">
     <strong class="block font-medium mb-1">Initial code:</strong>
     <pre>
-      <code class="block p-2 border" contenteditable="true" data-test-method-target="code"><%= koan.initial_code %></code>
+      <code-input language="ruby" data-minitest-target="code"><%= koan.initial_code %></code-input>
     </pre>
-    <button data-action="click->test-method#run" class="cursor-pointer mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium">Run</button>
+    <button data-action="click->minitest#run" class="cursor-pointer mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium">Run</button>
     <pre>
-      <code class="block" data-test-method-target="output"></code>
+      <code class="block" data-minitest-target="output"></code>
     </pre>
   </div>
 
