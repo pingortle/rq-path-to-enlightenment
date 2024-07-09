@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_06_215534) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_08_233407) do
+  create_table "koans", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.text "initial_code"
+    t.integer "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "recovery_codes", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "code", null: false

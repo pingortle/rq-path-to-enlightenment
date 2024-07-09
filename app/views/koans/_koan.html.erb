@@ -1,0 +1,28 @@
+<div data-controller="test-method" id="<%= dom_id koan %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Title:</strong>
+    <%= koan.title %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Description:</strong>
+    <%= koan.description %>
+  </p>
+
+  <div class="my-5">
+    <strong class="block font-medium mb-1">Initial code:</strong>
+    <pre>
+      <code class="block p-2 border" contenteditable="true" data-test-method-target="code"><%= koan.initial_code %></code>
+    </pre>
+    <button data-action="click->test-method#run" class="cursor-pointer mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium">Run</button>
+    <pre>
+      <code class="block" data-test-method-target="output"></code>
+    </pre>
+  </div>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Order:</strong>
+    <%= koan.order %>
+  </p>
+
+</div>

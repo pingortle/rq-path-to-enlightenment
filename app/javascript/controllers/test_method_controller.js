@@ -9,36 +9,42 @@ export default class extends Controller {
   }
 
   async run (event) {
+    console.log('running ruby code')
+    console.log(this.rubyCode)
+    this.outputTarget.textContent = ''
+
     const result = await (await this.vm).evalAsync(this.rubyCode)
       .catch(e => {
         this.outputTarget.textContent += e
         return e
       })
 
-    this.outputTarget.textContent += result
+    if (result.toJS() == true) {
+      this.outputTarget.textContent += '✅'
+    } else {
+      this.outputTarget.textContent += '❌'
+    }
   }
 
   get rubyCode () {
     return `
     ${this.codeTarget.textContent}
+    ${this.rubyAfterUserCode}
     `
   }
 
-  get codePreamble () {
+  get rubySetupCode () {
     return `
-    require "js"
-    $stdout = Object.new.tap do |obj|
-        def obj.write(str)
-          JS.global[:console].log("from ruby!", str)
-        end
-      end
+    require 'minitest/test'
+    FakeParallelExecutor = Struct.new(:shutdown)
+    Minitest.parallel_executor = FakeParallelExecutor.new
+    `
+  }
 
-    $stderr = Object.new.tap do |obj|
-        def obj.write(str)
-          JS.global[:console].error("from ruby!", str)
-        end
-      end
-      `
+  get rubyAfterUserCode () {
+    return `
+    Minitest.run
+    `
   }
 
   async createRubyVM () {
@@ -66,7 +72,7 @@ export default class extends Controller {
     printer.addToImports(imports)
 
     const module = await WebAssembly.compileStreaming( // eslint-disable-line no-undef
-      fetch('https://cdn.jsdelivr.net/npm/@ruby/3.3-wasm-wasi@2.6.2/dist/ruby.wasm')
+      fetch('https://cdn.jsdelivr.net/npm/@ruby/3.3-wasm-wasi@2.6.2/dist/ruby+stdlib.wasm')
     )
     const instance = await WebAssembly.instantiate( // eslint-disable-line no-undef
       module,
@@ -78,6 +84,9 @@ export default class extends Controller {
 
     wasi.initialize(instance)
     vm.initialize()
+
+    vm.eval(this.rubySetupCode)
+    this.outputTarget.textContent = 'Ruby VM ready\n'
 
     return vm
   }
