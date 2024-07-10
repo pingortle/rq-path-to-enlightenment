@@ -4,14 +4,12 @@ import { File, OpenFile, PreopenDirectory, WASI } from '@bjorn3/browser_wasi_shi
 export default class extends Controller {
   static targets = ['code', 'output']
 
-  connect () {
-    this.vm = this.createRubyVM()
-  }
-
   async run (event) {
     console.log('running ruby code')
     console.log(this.rubyCode)
     this.outputTarget.textContent = ''
+
+    this.vm ||= this.createRubyVM()
 
     const result = await (await this.vm).evalAsync(this.rubyCode)
       .catch(e => {

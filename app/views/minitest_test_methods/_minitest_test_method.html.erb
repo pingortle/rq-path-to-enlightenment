@@ -1,0 +1,9 @@
+<div data-controller="minitest" id="<%= dom_id minitest_test_method %>">
+  <div class="my-5">
+    <pre class="bg-gray-100 p-4 rounded-lg"><code data-minitest-target="code" class="language-ruby"><%= minitest_test_method.full_code_with_class %></code></pre>
+  </div>
+  <div class="my-5">
+    <button data-action="minitest#run" class="rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer">Run</button>
+  </div>
+  <pre data-minitest-target="output" class="bg-gray-100 p-4 rounded-lg"></pre>
+</div>

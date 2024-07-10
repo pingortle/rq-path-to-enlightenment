@@ -1,0 +1,2 @@
+module MinitestTestMethodsHelper
+end

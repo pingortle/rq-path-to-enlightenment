@@ -28,7 +28,8 @@
   main_nav_links = if Current.user
     [
       OpenStruct.new(name: "Dashboard", path: root_path),
-      OpenStruct.new(name: "Koans", path: koans_path)
+      OpenStruct.new(name: "Koans", path: koans_path),
+      OpenStruct.new(name: "Tests", path: minitest_test_classes_path)
     ]
   else
     [
@@ -74,6 +75,11 @@
         )
       );
       // Register templates with different names here, if needed.
+      document.addEventListener('turbo:load', (event) => {
+        document.querySelectorAll('pre code').forEach((el) => {
+          hljs.highlightElement(el);
+        });
+      });
     </script>
   </head>
 

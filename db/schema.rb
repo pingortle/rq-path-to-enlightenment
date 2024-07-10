@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_08_233407) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_10_012232) do
   create_table "koans", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -18,6 +18,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_08_233407) do
     t.integer "order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "minitest_test_classes", force: :cascade do |t|
+    t.string "class_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "minitest_test_methods", force: :cascade do |t|
+    t.string "method_name"
+    t.text "method_body"
+    t.integer "minitest_test_class_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["minitest_test_class_id"], name: "index_minitest_test_methods_on_minitest_test_class_id"
   end
 
   create_table "recovery_codes", force: :cascade do |t|
@@ -51,6 +66,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_08_233407) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "minitest_test_methods", "minitest_test_classes"
   add_foreign_key "recovery_codes", "users"
   add_foreign_key "sessions", "users"
 end

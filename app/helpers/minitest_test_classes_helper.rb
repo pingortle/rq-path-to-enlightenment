@@ -1,0 +1,2 @@
+module MinitestTestClassesHelper
+end
