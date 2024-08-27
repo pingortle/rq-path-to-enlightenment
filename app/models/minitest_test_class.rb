@@ -11,4 +11,12 @@ class MinitestTestClass < ApplicationRecord
       end
     CODE
   end
+
+  def title
+    class_name
+  end
+
+  def description
+    "TODO: Write a description for #{class_name}"
+  end
 end

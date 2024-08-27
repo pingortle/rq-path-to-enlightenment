@@ -10,7 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_10_012232) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_13_193744) do
+  create_table "challenge_answers", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "challenge_id", null: false
+    t.text "submitted_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_id"], name: "index_challenge_answers_on_challenge_id"
+    t.index ["user_id"], name: "index_challenge_answers_on_user_id"
+  end
+
+  create_table "challenges", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "position"
+    t.integer "journey_id", null: false
+    t.string "challengeable_type", null: false
+    t.integer "challengeable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challengeable_type", "challengeable_id"], name: "index_challenges_on_challengeable"
+    t.index ["journey_id"], name: "index_challenges_on_journey_id"
+  end
+
+  create_table "journeys", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "koans", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -66,6 +96,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_10_012232) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "challenge_answers", "challenges"
+  add_foreign_key "challenge_answers", "users"
+  add_foreign_key "challenges", "journeys"
   add_foreign_key "minitest_test_methods", "minitest_test_classes"
   add_foreign_key "recovery_codes", "users"
   add_foreign_key "sessions", "users"

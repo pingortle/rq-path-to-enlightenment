@@ -83,7 +83,10 @@ Minitest.parallel_executor = FakeParallelExecutor.new
     wasi.initialize(instance)
     vm.initialize()
 
+    console.log('Setting up Ruby VM…')
+    console.log(this.rubySetupCode)
     vm.eval(this.rubySetupCode)
+    console.log('Ruby VM ready')
     this.outputTarget.textContent = 'Ruby VM ready\n'
 
     return vm

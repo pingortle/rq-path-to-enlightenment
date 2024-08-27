@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+  resources :challenge_answers
+
+  resources :journeys, shallow: true do
+    resources :challenges
+  end
+
   resources :minitest_test_classes, shallow: true do
     resources :minitest_test_methods
   end
 
   resources :koans
+
   get "sign_in", to: "sessions#new"
   post "sign_in", to: "sessions#create"
   get "sign_up", to: "registrations#new"

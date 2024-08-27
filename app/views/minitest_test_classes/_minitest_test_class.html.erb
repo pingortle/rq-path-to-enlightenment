@@ -1,7 +1,11 @@
-<div data-controller="minitest" id="<%= dom_id minitest_test_class %>">
-  <pre class="bg-gray-100 p-4 rounded-lg"><code data-minitest-target="code" class="language-ruby"><%= minitest_test_class.full_code %></code></pre>
-  <div class="my-5">
-    <button data-action="minitest#run" class="rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer">Run</button>
+<div class="sm:flex sm:space-x-4" data-controller="minitest" id="<%= dom_id minitest_test_class %>">
+  <div class="flex-1 flex-col space-y-2">
+    <pre class="bg-gray-100 p-4 rounded-lg w-full"><code data-minitest-target="code" class="language-ruby"><%= minitest_test_class.full_code %></code></pre>
+    <div class="my-5">
+      <button data-action="minitest#run" class="rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer">Run</button>
+    </div>
   </div>
-  <pre data-minitest-target="output" class="bg-gray-100 p-4 rounded-lg"></pre>
+  <div class="flex-1 flex-col space-y-2 p-4 overflow-scroll rounded-lg bg-gray-100">
+    <pre data-minitest-target="output"></pre>
+  </div>
 </div>
