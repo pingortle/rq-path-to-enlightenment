@@ -38,4 +38,8 @@ class User < ApplicationRecord
     # TODO: Implement actual association with user's journeys
     Journey.all # Returning all journeys as a stub
   end
+
+  def username
+    email.split('@').first
+  end
 end
