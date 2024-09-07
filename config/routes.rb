@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'settings/index'
+  get 'settings', to: 'settings#index'
   resources :challenge_answers
 
   resources :journeys, shallow: true do

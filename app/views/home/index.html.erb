@@ -11,33 +11,26 @@
 <div class="bg-white py-12">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="mt-10">
-      <h3 class="text-lg font-medium leading-6 text-gray-900">Overall Completion: 35%</h3>
+      <h3 class="text-lg font-medium leading-6 text-gray-900">Overall Completion: <%= number_to_percentage(Current.user.overall_completion, precision: 0) %></h3>
       <div class="mt-2 h-6 w-full bg-gray-200 rounded-full">
-        <div class="h-6 rounded-full bg-indigo-600" style="width: 35%"></div>
+        <div class="h-6 rounded-full bg-indigo-600" style="width: <%= Current.user.overall_completion %>%"></div>
       </div>
     </div>
 
     <div class="mt-10">
       <h3 class="text-lg font-medium leading-6 text-gray-900">Journeys</h3>
       <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
-        <div class="bg-white overflow-hidden shadow rounded-lg">
-          <div class="px-4 py-5 sm:p-6">
-            <dt class="text-sm font-medium text-gray-500 truncate">Introduction to Ruby</dt>
-            <dd class="mt-1 text-3xl font-semibold text-gray-900">70%</dd>
-            <div class="mt-2 h-3 w-full bg-gray-200 rounded-full">
-              <div class="h-3 rounded-full bg-indigo-600" style="width: 70%"></div>
+        <% Current.user.journeys.each do |journey| %>
+          <div class="bg-white overflow-hidden shadow rounded-lg">
+            <div class="px-4 py-5 sm:p-6">
+              <dt class="text-sm font-medium text-gray-500 truncate"><%= journey.name %></dt>
+              <dd class="mt-1 text-3xl font-semibold text-gray-900"><%= number_to_percentage(journey.completion_percentage, precision: 0) %></dd>
+              <div class="mt-2 h-3 w-full bg-gray-200 rounded-full">
+                <div class="h-3 rounded-full bg-indigo-600" style="width: <%= journey.completion_percentage %>%"></div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="bg-white overflow-hidden shadow rounded-lg">
-          <div class="px-4 py-5 sm:p-6">
-            <dt class="text-sm font-medium text-gray-500 truncate">Object-Oriented Programming</dt>
-            <dd class="mt-1 text-3xl font-semibold text-gray-900">30%</dd>
-            <div class="mt-2 h-3 w-full bg-gray-200 rounded-full">
-              <div class="h-3 rounded-full bg-indigo-600" style="width: 30%"></div>
-            </div>
-          </div>
-        </div>
+        <% end %>
       </dl>
     </div>
   </div>
