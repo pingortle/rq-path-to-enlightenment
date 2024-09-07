@@ -28,6 +28,8 @@ class TwoFactorAuthentication::Challenge::TotpsController < ApplicationControlle
     session_record = @user.sessions.create!
     cookies.signed.permanent[:session_token] = {value: session_record.id, httponly: true}
 
+    @user.update(last_sign_in_at: Time.current)
+
     redirect_to root_path, notice: "Signed in successfully"
   end
 end
