@@ -1,6 +1,11 @@
 class Journey < ApplicationRecord
   has_many :challenges, dependent: :destroy
 
+  def name
+    # TODO: Implement actual name logic
+    "Journey #{id}"
+  end
+
   def self.new_from_minitest_test_class(record)
     new(
       title: record.title,
