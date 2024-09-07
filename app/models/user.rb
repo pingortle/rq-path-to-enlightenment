@@ -33,4 +33,9 @@ class User < ApplicationRecord
     # TODO: Implement actual calculation
     50.0 # Returning a stub value of 50%
   end
+
+  def journeys
+    # TODO: Implement actual association with user's journeys
+    Journey.all # Returning all journeys as a stub
+  end
 end
