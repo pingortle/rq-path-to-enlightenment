@@ -19,6 +19,8 @@ class SessionsController < ApplicationController
         @session = user.sessions.create!
         cookies.signed.permanent[:session_token] = {value: @session.id, httponly: true}
 
+        user.update(last_sign_in_at: Time.current)
+
         redirect_to root_path, notice: "Signed in successfully"
       end
     else
