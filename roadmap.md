@@ -2,18 +2,18 @@
 
 ## MVP (Minimum Viable Product)
 
-1. 🔴 User authentication and progress tracking
-2. 🔴 Interactive web-based Ruby code editor
-3. 🔴 Execution environment for Ruby code in the browser
-4. 🔴 First 5-10 Ruby Koans exercises converted to web format
-5. 🔴 Progress dashboard for users
-6. 🔴 Mobile-responsive design
+1. 🟢 User authentication and progress tracking
+2. 🟢 Interactive web-based Ruby code editor
+3. 🟢 Execution environment for Ruby code in the browser
+4. 🟢 First 5-10 Ruby Koans exercises converted to web format
+5. 🟢 Progress dashboard for users
+6. 🟢 Mobile-responsive design
 
 ## Phase 1: Core Functionality
 
 1. 🔴 Implement remaining Ruby Koans exercises
 2. 🔴 Add a hint system
-3. 🔴 Enhance mobile responsiveness
+3. 🟢 Enhance mobile responsiveness
 
 ## Phase 2: Enhanced Features
 
@@ -38,7 +38,7 @@
 
 ## Marketing Strategies
 
-1. 🔴 Create a landing page and blog
+1. 🟢 Create a landing page and blog
 2. 🔴 Engage with Ruby community on social media and forums
 3. 🔴 Launch beta version for testing
 4. 🔴 Write guest posts on Ruby blogs
