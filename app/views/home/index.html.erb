@@ -1,31 +1,44 @@
-<p style="color: green"><%= notice %></p>
-
-<p>Signed as <%= Current.user.email %></p>
-
-<h2>Login and verification</h2>
-
-<div>
-  <%= link_to "Change password", edit_password_path %>
+<div class="bg-white">
+  <div class="mx-auto max-w-7xl py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <h2 class="text-lg font-semibold text-indigo-600">Dashboard</h2>
+      <p class="mt-1 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">Your Progress</p>
+      <p class="mx-auto mt-5 max-w-xl text-xl text-gray-500">Track your journey to Ruby mastery</p>
+    </div>
+  </div>
 </div>
 
-<div>
-  <%= link_to "Change email address", edit_identity_email_path %>
+<div class="bg-white py-12">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mt-10">
+      <h3 class="text-lg font-medium leading-6 text-gray-900">Overall Completion: 35%</h3>
+      <div class="mt-2 h-6 w-full bg-gray-200 rounded-full">
+        <div class="h-6 rounded-full bg-indigo-600" style="width: 35%"></div>
+      </div>
+    </div>
+
+    <div class="mt-10">
+      <h3 class="text-lg font-medium leading-6 text-gray-900">Journeys</h3>
+      <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
+        <div class="bg-white overflow-hidden shadow rounded-lg">
+          <div class="px-4 py-5 sm:p-6">
+            <dt class="text-sm font-medium text-gray-500 truncate">Introduction to Ruby</dt>
+            <dd class="mt-1 text-3xl font-semibold text-gray-900">70%</dd>
+            <div class="mt-2 h-3 w-full bg-gray-200 rounded-full">
+              <div class="h-3 rounded-full bg-indigo-600" style="width: 70%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white overflow-hidden shadow rounded-lg">
+          <div class="px-4 py-5 sm:p-6">
+            <dt class="text-sm font-medium text-gray-500 truncate">Object-Oriented Programming</dt>
+            <dd class="mt-1 text-3xl font-semibold text-gray-900">30%</dd>
+            <div class="mt-2 h-3 w-full bg-gray-200 rounded-full">
+              <div class="h-3 rounded-full bg-indigo-600" style="width: 30%"></div>
+            </div>
+          </div>
+        </div>
+      </dl>
+    </div>
+  </div>
 </div>
-
-<div>
-  <%= link_to "Two-Factor Authentication", new_two_factor_authentication_profile_totp_path %>
-</div>
-
-<% if Current.user.otp_required_for_sign_in? %>
-  <div><%= link_to "Recovery Codes", two_factor_authentication_profile_recovery_codes_path %></div>
-<% end %>
-
-<h2>Access history</h2>
-
-<div>
-  <%= link_to "Devices & Sessions", sessions_path %>
-</div>
-
-<br>
-
-<%= button_to "Log out", Current.session, method: :delete %>
