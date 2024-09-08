@@ -14,12 +14,15 @@ class Journey < ApplicationRecord
   end
 
   def self.new_from_minitest_test_class(record)
-    new(
+    journey = new(
       title: record.title,
-      description: record.description,
-      challenges: record.minitest_test_methods.map.with_index { |method, index|
-        Challenge.new_from_minitest_test_method(method, position: index)
-      }
+      description: record.description
     )
+    
+    journey.challenges = record.minitest_test_methods.map.with_index do |method, index|
+      Challenge.new_from_minitest_test_method(method, journey: journey, position: index)
+    end
+
+    journey
   end
 end
