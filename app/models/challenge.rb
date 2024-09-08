@@ -7,6 +7,8 @@ class Challenge < ApplicationRecord
   validates :description, presence: true
   validates :position, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
 
+  accepts_nested_attributes_for :challengeable
+
   def self.new_from_minitest_test_method(record, journey:, position:)
     new(
       title: record.method_name,
