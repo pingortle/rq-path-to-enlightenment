@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_13_193744) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_08_032800) do
   create_table "challenge_answers", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "challenge_id", null: false
@@ -37,15 +37,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_13_193744) do
   create_table "journeys", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "koans", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.text "initial_code"
-    t.integer "order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -93,6 +84,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_13_193744) do
     t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "last_sign_in_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

@@ -8,7 +8,7 @@ class Journey < ApplicationRecord
 
   def completion_percentage
     # TODO: Implement actual completion percentage calculation
-    rand(0..100) # Returning a random percentage as a stub
+    @completion_percentage ||= rand(0..100) # Returning a random percentage as a stub
   end
 
   def self.new_from_minitest_test_class(record)

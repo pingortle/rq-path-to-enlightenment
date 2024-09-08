@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     resources :minitest_test_methods
   end
 
-  resources :koans
 
   get "sign_in", to: "sessions#new"
   post "sign_in", to: "sessions#create"

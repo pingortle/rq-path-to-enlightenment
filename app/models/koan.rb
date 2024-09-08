@@ -1,2 +1,0 @@
-class Koan < ApplicationRecord
-end

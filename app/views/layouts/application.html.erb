@@ -28,7 +28,6 @@
   main_nav_links = if Current.user
     [
       OpenStruct.new(name: "Dashboard", path: root_path),
-      OpenStruct.new(name: "Koans", path: koans_path),
       OpenStruct.new(name: "Tests", path: minitest_test_classes_path),
       OpenStruct.new(name: "Journeys", path: journeys_path),
       OpenStruct.new(name: "Settings", path: settings_path)
@@ -203,9 +202,6 @@
 
       <div class="py-10">
         <header>
-          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h1 class="text-3xl font-bold leading-tight tracking-tight text-gray-900">Dashboard</h1>
-          </div>
         </header>
         <main>
           <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
