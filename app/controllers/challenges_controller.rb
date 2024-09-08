@@ -1,4 +1,4 @@
-class Journeys::ChallengesController < ApplicationController
+class ChallengesController < ApplicationController
   before_action :set_journey
   before_action :set_challenge, only: [:show, :edit, :update, :destroy]
 
@@ -17,7 +17,7 @@ class Journeys::ChallengesController < ApplicationController
     @challenge = @journey.challenges.new(challenge_params)
 
     if @challenge.save
-      redirect_to journey_challenge_path(@journey, @challenge), notice: 'Challenge was successfully created.'
+      redirect_to journey_challenge_path(@journey, @challenge), notice: "Challenge was successfully created."
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Journeys::ChallengesController < ApplicationController
 
   def update
     if @challenge.update(challenge_params)
-      redirect_to journey_challenge_path(@journey, @challenge), notice: 'Challenge was successfully updated.'
+      redirect_to journey_challenge_path(@journey, @challenge), notice: "Challenge was successfully updated."
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class Journeys::ChallengesController < ApplicationController
 
   def destroy
     @challenge.destroy
-    redirect_to journey_challenges_path(@journey), notice: 'Challenge was successfully destroyed.'
+    redirect_to journey_challenges_path(@journey), notice: "Challenge was successfully destroyed."
   end
 
   private
