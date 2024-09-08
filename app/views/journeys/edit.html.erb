@@ -9,8 +9,8 @@
     <% @journey.challenges.order(:position).each do |challenge| %>
       <li class="mb-2">
         <%= challenge.title %>
-        <%= link_to "Edit", edit_challenge_path(challenge), class: "ml-2 text-blue-600 hover:text-blue-800" %>
-        <%= link_to "Remove", challenge_path(challenge), method: :delete, data: { confirm: "Are you sure you want to remove this challenge?" }, class: "ml-2 text-red-600 hover:text-red-800" %>
+        <%= link_to "Edit", edit_journey_challenge_path(@journey, challenge), class: "ml-2 text-blue-600 hover:text-blue-800" %>
+        <%= link_to "Remove", journey_challenge_path(@journey, challenge), method: :delete, data: { confirm: "Are you sure you want to remove this challenge?" }, class: "ml-2 text-red-600 hover:text-red-800" %>
       </li>
     <% end %>
   </ul>
