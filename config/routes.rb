@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   resources :challenge_answers
 
   resources :journeys do
-    resources :challenges, shallow: true
+    resources :challenges
   end
+  resources :challenges, only: [:show, :edit, :update, :destroy]
 
   resources :minitest_test_classes, shallow: true do
     resources :minitest_test_methods

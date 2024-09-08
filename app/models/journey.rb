@@ -1,5 +1,7 @@
 class Journey < ApplicationRecord
-  has_many :challenges, dependent: :destroy
+  has_many :challenges, -> { order(position: :asc) }, dependent: :destroy
+
+  validates :title, presence: true
 
   def name
     # TODO: Implement actual name logic
@@ -15,8 +17,8 @@ class Journey < ApplicationRecord
     new(
       title: record.title,
       description: record.description,
-      challenges: record.minitest_test_methods.map { |method|
-        Challenge.new_from_minitest_test_method(method, position: method.position.to_i)
+      challenges: record.minitest_test_methods.map.with_index { |method, index|
+        Challenge.new_from_minitest_test_method(method, position: index)
       }
     )
   end
