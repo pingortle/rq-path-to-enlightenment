@@ -1,70 +1,55 @@
-class ChallengesController < ApplicationController
-  before_action :set_challenge, only: %i[ show edit update destroy ]
+class Journeys::ChallengesController < ApplicationController
+  before_action :set_journey
+  before_action :set_challenge, only: [:show, :edit, :update, :destroy]
 
-  # GET /challenges or /challenges.json
   def index
-    @challenges = Challenge.all
+    @challenges = @journey.challenges.order(:position)
   end
 
-  # GET /challenges/1 or /challenges/1.json
   def show
   end
 
-  # GET /challenges/new
   def new
-    @challenge = Challenge.new
+    @challenge = @journey.challenges.new
   end
 
-  # GET /challenges/1/edit
+  def create
+    @challenge = @journey.challenges.new(challenge_params)
+
+    if @challenge.save
+      redirect_to journey_challenge_path(@journey, @challenge), notice: 'Challenge was successfully created.'
+    else
+      render :new
+    end
+  end
+
   def edit
   end
 
-  # POST /challenges or /challenges.json
-  def create
-    @challenge = Challenge.new(challenge_params)
-
-    respond_to do |format|
-      if @challenge.save
-        format.html { redirect_to challenge_url(@challenge), notice: "Challenge was successfully created." }
-        format.json { render :show, status: :created, location: @challenge }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @challenge.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /challenges/1 or /challenges/1.json
   def update
-    respond_to do |format|
-      if @challenge.update(challenge_params)
-        format.html { redirect_to challenge_url(@challenge), notice: "Challenge was successfully updated." }
-        format.json { render :show, status: :ok, location: @challenge }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @challenge.errors, status: :unprocessable_entity }
-      end
+    if @challenge.update(challenge_params)
+      redirect_to journey_challenge_path(@journey, @challenge), notice: 'Challenge was successfully updated.'
+    else
+      render :edit
     end
   end
 
-  # DELETE /challenges/1 or /challenges/1.json
   def destroy
-    @challenge.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to challenges_url, notice: "Challenge was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    @challenge.destroy
+    redirect_to journey_challenges_path(@journey), notice: 'Challenge was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_challenge
-      @challenge = Challenge.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def challenge_params
-      params.require(:challenge).permit(:title, :description, :journey_id, :position, :challengeable_id, :challengeable_type)
-    end
+  def set_journey
+    @journey = Journey.find(params[:journey_id])
+  end
+
+  def set_challenge
+    @challenge = @journey.challenges.find(params[:id])
+  end
+
+  def challenge_params
+    params.require(:challenge).permit(:title, :description, :position)
+  end
 end
