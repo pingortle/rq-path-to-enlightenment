@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1800">
+  <!-- User Authentication -->
+  <text x="50" y="30" font-size="20" font-weight="bold">User Authentication</text>
+  <rect x="50" y="50" width="300" height="200" fill="none" stroke="black" />
+  <text x="170" y="80" font-size="14" text-anchor="middle">Login</text>
+  <rect x="70" y="100" width="260" height="30" fill="none" stroke="black" />
+  <text x="75" y="120" font-size="12">Email</text>
+  <rect x="70" y="140" width="260" height="30" fill="none" stroke="black" />
+  <text x="75" y="160" font-size="12">Password</text>
+  <rect x="70" y="180" width="260" height="30" fill="none" stroke="black" />
+  <text x="200" y="200" font-size="12" text-anchor="middle">Login</text>
+
+  <!-- User Dashboard -->
+  <text x="400" y="30" font-size="20" font-weight="bold">User Dashboard</text>
+  <rect x="400" y="50" width="350" height="500" fill="none" stroke="black" />
+  <text x="575" y="80" font-size="14" text-anchor="middle">User Dashboard</text>
+  
+  <!-- Journey List -->
+  <rect x="420" y="100" width="310" height="80" fill="none" stroke="black" />
+  <text x="430" y="120" font-size="12">Journey 1</text>
+  <rect x="430" y="130" width="290" height="10" fill="none" stroke="black" />
+  <rect x="430" y="130" width="145" height="10" fill="gray" />
+  <text x="430" y="155" font-size="10">15/30 completed</text>
+
+  <rect x="420" y="190" width="310" height="80" fill="none" stroke="black" />
+  <text x="430" y="210" font-size="12">Journey 2</text>
+  <rect x="430" y="220" width="290" height="10" fill="none" stroke="black" />
+  <rect x="430" y="220" width="87" height="10" fill="gray" />
+  <text x="430" y="245" font-size="10">6/20 completed</text>
+
+  <!-- Ruby Code Editor -->
+  <text x="50" y="580" font-size="20" font-weight="bold">Ruby Code Editor</text>
+  <rect x="50" y="600" width="700" height="250" fill="none" stroke="black" />
+  
+  <!-- Code Editor -->
+  <rect x="60" y="610" width="340" height="230" fill="none" stroke="black" />
+  <text x="70" y="630" font-size="12">Code Editor</text>
+  <line x1="60" y1="640" x2="400" y2="640" stroke="gray" stroke-dasharray="2,2"/>
+  <text x="65" y="655" font-size="10" fill="gray">1</text>
+  <text x="65" y="670" font-size="10" fill="gray">2</text>
+  <text x="65" y="685" font-size="10" fill="gray">3</text>
+  <text x="85" y="655" font-size="10" fill="blue">def</text>
+  <text x="105" y="655" font-size="10">hello_world</text>
+  <text x="85" y="670" font-size="10" fill="blue">puts</text>
+  <text x="115" y="670" font-size="10" fill="green">"Hello, World!"</text>
+  <text x="85" y="685" font-size="10" fill="blue">end</text>
+  
+  <!-- Run Button -->
+  <rect x="60" y="850" width="60" height="30" fill="none" stroke="black" />
+  <text x="90" y="870" font-size="12" text-anchor="middle">Run</text>
+  
+  <!-- Results Pane -->
+  <rect x="410" y="610" width="330" height="230" fill="black" />
+  <text x="420" y="630" font-size="12" fill="white">Results</text>
+  <text x="420" y="650" font-size="10" fill="green">$</text>
+  <text x="435" y="650" font-size="10" fill="white">ruby your_code.rb</text>
+  <text x="420" y="670" font-size="10" fill="white">Hello, World!</text>
+
+  <!-- Journey and Step List -->
+  <text x="50" y="930" font-size="20" font-weight="bold">Journey and Step List</text>
+  <text x="50" y="960" font-size="16" font-weight="bold">Journey: Introduction to Ruby</text>
+  
+  <!-- Step List -->
+  <rect x="50" y="980" width="700" height="320" fill="none" stroke="gray" stroke-width="2"/>
+  
+  <!-- Step 1 -->
+  <rect x="60" y="990" width="680" height="70" fill="none" stroke="lightgray" rx="5" ry="5"/>
+  <text x="70" y="1010" font-size="14" fill="purple">def</text>
+  <text x="100" y="1010" font-size="14">hello_world</text>
+  <text x="70" y="1030" font-size="14" fill="blue">  puts</text>
+  <text x="110" y="1030" font-size="14" fill="green">"Hello, World!"</text>
+  <text x="70" y="1050" font-size="14" fill="purple">end</text>
+  
+  <!-- Step 2 -->
+  <rect x="60" y="1070" width="680" height="70" fill="none" stroke="lightgray" rx="5" ry="5"/>
+  <text x="70" y="1090" font-size="14" fill="purple">def</text>
+  <text x="100" y="1090" font-size="14">add(a, b)</text>
+  <text x="70" y="1110" font-size="14" fill="blue">  # Your code here</text>
+  <text x="70" y="1130" font-size="14" fill="purple">end</text>
+  
+  <!-- Step 3 -->
+  <rect x="60" y="1150" width="680" height="90" fill="none" stroke="lightgray" rx="5" ry="5"/>
+  <text x="70" y="1170" font-size="14" fill="purple">class</text>
+  <text x="110" y="1170" font-size="14">Dog</text>
+  <text x="70" y="1190" font-size="14" fill="purple">  def</text>
+  <text x="100" y="1190" font-size="14">bark</text>
+  <text x="70" y="1210" font-size="14" fill="blue">    # Your code here</text>
+  <text x="70" y="1230" font-size="14" fill="purple">  end</text>
+  <text x="70" y="1250" font-size="14" fill="purple">end</text>
+
+  <!-- User Progress Dashboard -->
+  <text x="50" y="1340" font-size="20" font-weight="bold">User Progress Dashboard</text>
+  <!-- Navigation Bar -->
+  <rect x="50" y="1370" width="800" height="50" fill="#f0f0f0"/>
+  <text x="70" y="1400" font-size="16" font-weight="bold">Ruby Quest</text>
+  <text x="730" y="1400" font-size="14">Dashboard</text>
+  <text x="820" y="1400" font-size="14">Profile</text>
+
+  <!-- Dashboard Title -->
+  <text x="90" y="1450" font-size="24" font-weight="bold">Your Progress</text>
+
+  <!-- Overall Progress -->
+  <text x="90" y="1490" font-size="18">Overall Completion: 35%</text>
+  <rect x="90" y="1500" width="720" height="20" fill="none" stroke="black"/>
+  <rect x="90" y="1500" width="252" height="20" fill="green"/>
+
+  <!-- Journey Progress List -->
+  <text x="90" y="1550" font-size="20" font-weight="bold">Journeys</text>
+
+  <!-- Journey 1 -->
+  <text x="90" y="1590" font-size="16">Introduction to Ruby</text>
+  <rect x="90" y="1600" width="720" height="15" fill="none" stroke="black"/>
+  <rect x="90" y="1600" width="504" height="15" fill="blue"/>
+  <text x="820" y="1613" font-size="14" text-anchor="end">70%</text>
+
+  <!-- Journey 2 -->
+  <text x="90" y="1640" font-size="16">Object-Oriented Programming</text>
+  <rect x="90" y="1650" width="720" height="15" fill="none" stroke="black"/>
+  <rect x="90" y="1650" width="216" height="15" fill="blue"/>
+  <text x="820" y="1663" font-size="14" text-anchor="end">30%</text>
+
+  <!-- Journey Step Navigation -->
+  <text x="50" y="1700" font-size="20" font-weight="bold">Journey Step Navigation</text>
+  <!-- Step Progress -->
+  <text x="90" y="1730" font-size="16">Step 3 of 10</text>
+  <rect x="90" y="1740" width="720" height="10" fill="none" stroke="black"/>
+  <rect x="90" y="1740" width="216" height="10" fill="green"/>
+
+  <!-- Navigation Controls -->
+  <rect x="90" y="1760" width="100" height="40" fill="blue" rx="5" ry="5"/>
+  <text x="140" y="1785" font-size="14" fill="white" text-anchor="middle">Previous</text>
+
+  <rect x="710" y="1760" width="100" height="40" fill="green" rx="5" ry="5"/>
+  <text x="760" y="1785" font-size="14" fill="white" text-anchor="middle">Next</text>
+
+  <!-- Step List Toggle -->
+  <rect x="420" y="1760" width="60" height="40" fill="gray" rx="5" ry="5"/>
+  <text x="450" y="1785" font-size="14" fill="white" text-anchor="middle">Steps</text>
+</svg>
