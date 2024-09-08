@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   get 'settings', to: 'settings#index'
   resources :challenge_answers
 
-  resources :journeys, shallow: true do
-    resources :challenges
+  resources :journeys do
+    resources :challenges, shallow: true
   end
 
   resources :minitest_test_classes, shallow: true do

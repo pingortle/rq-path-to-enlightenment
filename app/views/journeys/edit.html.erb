@@ -3,6 +3,22 @@
 
   <%= render "form", journey: @journey %>
 
-  <%= link_to "Show this journey", @journey, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to journeys", journeys_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <h2 class="font-bold text-2xl mt-8 mb-4">Challenges</h2>
+  
+  <ul class="list-disc pl-5 mb-4">
+    <% @journey.challenges.order(:position).each do |challenge| %>
+      <li class="mb-2">
+        <%= challenge.title %>
+        <%= link_to "Edit", edit_challenge_path(challenge), class: "ml-2 text-blue-600 hover:text-blue-800" %>
+        <%= link_to "Remove", challenge_path(challenge), method: :delete, data: { confirm: "Are you sure you want to remove this challenge?" }, class: "ml-2 text-red-600 hover:text-red-800" %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Add Challenge", new_journey_challenge_path(@journey), class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium" %>
+
+  <div class="mt-8">
+    <%= link_to "Show this journey", @journey, class: "mr-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Back to journeys", journeys_path, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
 </div>
