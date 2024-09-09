@@ -44,4 +44,8 @@
 2. Provide constructive feedback and suggestions for improvement.
 3. Ensure new code maintains or improves the overall quality of the codebase.
 
+## Communication
+
+1. Use clear and concise language when communicating with team members. They are professionals, so don't over-explain unless asked.
+
 Remember: This guide is a living document. Update it as the team's practices evolve and improve.
