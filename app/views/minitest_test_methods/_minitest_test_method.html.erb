@@ -7,3 +7,9 @@
   </div>
   <pre data-minitest-target="output" class="bg-gray-100 p-4 rounded-lg"></pre>
 </div>
+<div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+  <h4 class="text-lg font-bold mb-2"><%= minitest_test_method.method_name %></h4>
+  <pre class="bg-gray-100 p-2 rounded"><%= minitest_test_method.method_body %></pre>
+  <%= link_to 'Edit', edit_minitest_test_method_path(minitest_test_method), class: "text-blue-500 hover:text-blue-700" %>
+  <%= button_to 'Delete', minitest_test_method_path(minitest_test_method), method: :delete, class: "text-red-500 hover:text-red-700", data: { confirm: 'Are you sure?' } %>
+</div>
