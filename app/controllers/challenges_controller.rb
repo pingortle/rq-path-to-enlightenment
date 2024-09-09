@@ -17,9 +17,9 @@ class ChallengesController < ApplicationController
     @challenge = @journey.challenges.new(challenge_params)
 
     if @challenge.save
-      redirect_to journey_challenge_path(@journey, @challenge), notice: "Challenge was successfully created."
+      redirect_to journey_path(@journey), notice: "Challenge was successfully created."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -28,9 +28,9 @@ class ChallengesController < ApplicationController
 
   def update
     if @challenge.update(challenge_params)
-      redirect_to journey_challenge_path(@journey, @challenge), notice: "Challenge was successfully updated."
+      redirect_to journey_path(@journey), notice: "Challenge was successfully updated."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

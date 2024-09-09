@@ -22,6 +22,8 @@
 4. Use `rails restart` instead of `rails server` for restarting the application. The server will be handled separately.
 5. Keep ChromeDriver up to date with the latest Chrome version installed on your system. This is crucial for system tests to run properly.
 6. ALWAYS use Rails generators for creating new controllers, models, and other components. This is crucial for maintaining consistency and leveraging Rails conventions. After generation, you can then modify the generated files as needed. Never skip this step or attempt to manually create files that should be generated.
+  - WAIT for my go-ahead to edit the newly generated files.
+  - NEVER attempt to manually create files that should be generated.
 
 ## Testing
 

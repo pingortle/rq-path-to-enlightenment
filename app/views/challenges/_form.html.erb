@@ -27,13 +27,8 @@
   </div>
 
   <div class="my-5">
-    <%= form.label :journey_id %>
-    <%= form.text_field :journey_id, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.hidden_field :challengeable_type, value: 'MinitestTestClass' %>
-    <%= form.fields_for :challengeable, MinitestTestClass.new do |challengeable_form| %>
+    <%= form.hidden_field :challengeable_type, value: @challenge.challengeable_type %>
+    <%= form.fields_for :challengeable, @challenge.build_challengeable do |challengeable_form| %>
       <%= challengeable_form.label :class_name %>
       <%= challengeable_form.text_field :class_name, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
     <% end %>
