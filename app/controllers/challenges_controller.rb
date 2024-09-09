@@ -1,5 +1,5 @@
 class ChallengesController < ApplicationController
-  before_action :set_journey
+  before_action :set_journey, only: [:index, :new, :create]
   before_action :set_challenge, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -45,10 +45,12 @@ class ChallengesController < ApplicationController
 
   def set_journey
     @journey = Journey.find(params[:journey_id])
+    @challenge_scope = @journey.challenges
   end
 
   def set_challenge
-    @challenge = @journey.challenges.find(params[:id])
+    @challenge_scope ||= Challenge.all
+    @challenge = @challenge_scope.find(params[:id])
   end
 
   def challenge_params
