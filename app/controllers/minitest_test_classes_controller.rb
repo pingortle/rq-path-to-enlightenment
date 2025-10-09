@@ -1,5 +1,5 @@
 class MinitestTestClassesController < ApplicationController
-  before_action :set_minitest_test_class, only: %i[ show edit update destroy ]
+  before_action :set_minitest_test_class, only: %i[show edit update destroy]
 
   # GET /minitest_test_classes or /minitest_test_classes.json
   def index
@@ -58,13 +58,14 @@ class MinitestTestClassesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_minitest_test_class
-      @minitest_test_class = MinitestTestClass.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def minitest_test_class_params
-      params.require(:minitest_test_class).permit(:class_name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_minitest_test_class
+    @minitest_test_class = MinitestTestClass.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def minitest_test_class_params
+    params.require(:minitest_test_class).permit(:class_name)
+  end
 end

@@ -17,7 +17,7 @@ class ChallengeAnswersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create challenge_answer" do
     assert_difference("ChallengeAnswer.count") do
-      post challenge_answers_url, params: { challenge_answer: { challenge_id: @challenge_answer.challenge_id, submitted_code: @challenge_answer.submitted_code, user_id: @challenge_answer.user_id } }
+      post challenge_answers_url, params: {challenge_answer: {challenge_id: @challenge_answer.challenge_id, submitted_code: @challenge_answer.submitted_code, user_id: @challenge_answer.user_id}}
     end
 
     assert_redirected_to challenge_answer_url(ChallengeAnswer.last)
@@ -34,7 +34,7 @@ class ChallengeAnswersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update challenge_answer" do
-    patch challenge_answer_url(@challenge_answer), params: { challenge_answer: { challenge_id: @challenge_answer.challenge_id, submitted_code: @challenge_answer.submitted_code, user_id: @challenge_answer.user_id } }
+    patch challenge_answer_url(@challenge_answer), params: {challenge_answer: {challenge_id: @challenge_answer.challenge_id, submitted_code: @challenge_answer.submitted_code, user_id: @challenge_answer.user_id}}
     assert_redirected_to challenge_answer_url(@challenge_answer)
   end
 

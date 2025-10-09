@@ -17,7 +17,7 @@ class JourneysControllerTest < ActionDispatch::IntegrationTest
 
   test "should create journey" do
     assert_difference("Journey.count") do
-      post journeys_url, params: { journey: { description: @journey.description, title: @journey.title } }
+      post journeys_url, params: {journey: {description: @journey.description, title: @journey.title}}
     end
 
     assert_redirected_to journey_url(Journey.last)
@@ -34,7 +34,7 @@ class JourneysControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update journey" do
-    patch journey_url(@journey), params: { journey: { description: @journey.description, title: @journey.title } }
+    patch journey_url(@journey), params: {journey: {description: @journey.description, title: @journey.title}}
     assert_redirected_to journey_url(@journey)
   end
 

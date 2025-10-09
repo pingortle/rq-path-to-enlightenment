@@ -1,5 +1,5 @@
 class ChallengeAnswersController < ApplicationController
-  before_action :set_challenge_answer, only: %i[ show edit update destroy ]
+  before_action :set_challenge_answer, only: %i[show edit update destroy]
 
   # GET /challenge_answers or /challenge_answers.json
   def index
@@ -58,13 +58,14 @@ class ChallengeAnswersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_challenge_answer
-      @challenge_answer = ChallengeAnswer.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def challenge_answer_params
-      params.require(:challenge_answer).permit(:user_id, :challenge_id, :submitted_code)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_challenge_answer
+    @challenge_answer = ChallengeAnswer.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def challenge_answer_params
+    params.require(:challenge_answer).permit(:user_id, :challenge_id, :submitted_code)
+  end
 end

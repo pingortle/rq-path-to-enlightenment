@@ -18,7 +18,7 @@ class Journey < ApplicationRecord
       title: record.title,
       description: record.description
     )
-    
+
     journey.challenges = record.minitest_test_methods.map.with_index do |method, index|
       Challenge.new_from_minitest_test_method(method, journey: journey, position: index)
     end

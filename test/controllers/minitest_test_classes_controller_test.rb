@@ -17,7 +17,7 @@ class MinitestTestClassesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create minitest_test_class" do
     assert_difference("MinitestTestClass.count") do
-      post minitest_test_classes_url, params: { minitest_test_class: { class_name: @minitest_test_class.class_name } }
+      post minitest_test_classes_url, params: {minitest_test_class: {class_name: @minitest_test_class.class_name}}
     end
 
     assert_redirected_to minitest_test_class_url(MinitestTestClass.last)
@@ -34,7 +34,7 @@ class MinitestTestClassesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update minitest_test_class" do
-    patch minitest_test_class_url(@minitest_test_class), params: { minitest_test_class: { class_name: @minitest_test_class.class_name } }
+    patch minitest_test_class_url(@minitest_test_class), params: {minitest_test_class: {class_name: @minitest_test_class.class_name}}
     assert_redirected_to minitest_test_class_url(@minitest_test_class)
   end
 

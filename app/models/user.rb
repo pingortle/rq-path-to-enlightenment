@@ -40,6 +40,6 @@ class User < ApplicationRecord
   end
 
   def username
-    email.split('@').first
+    email.split("@").first
   end
 end

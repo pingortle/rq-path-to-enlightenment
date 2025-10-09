@@ -17,7 +17,7 @@ class MinitestTestMethodsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create minitest_test_method" do
     assert_difference("MinitestTestMethod.count") do
-      post minitest_test_methods_url, params: { minitest_test_method: { method_body: @minitest_test_method.method_body, method_name: @minitest_test_method.method_name } }
+      post minitest_test_methods_url, params: {minitest_test_method: {method_body: @minitest_test_method.method_body, method_name: @minitest_test_method.method_name}}
     end
 
     assert_redirected_to minitest_test_method_url(MinitestTestMethod.last)
@@ -34,7 +34,7 @@ class MinitestTestMethodsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update minitest_test_method" do
-    patch minitest_test_method_url(@minitest_test_method), params: { minitest_test_method: { method_body: @minitest_test_method.method_body, method_name: @minitest_test_method.method_name } }
+    patch minitest_test_method_url(@minitest_test_method), params: {minitest_test_method: {method_body: @minitest_test_method.method_body, method_name: @minitest_test_method.method_name}}
     assert_redirected_to minitest_test_method_url(@minitest_test_method)
   end
 
